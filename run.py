@@ -1,6 +1,21 @@
 from pystyle import Center
 import discum, re, requests, json, datetime, random, os
 import httpx
+from flask import Flask, render_template
+from threading import Thread
+app = Flask('')
+@app.route('/')
+def home():
+  return "bot python is online!"
+def index():
+  return render_template("index.html")
+def run():
+  app.run(host='0.0.0.0', port=8080)
+def H():
+  t = Thread(target=run)
+  t.start()
+
+H()
 
 
 # ตั้งค่าในไฟล์ Setting.json
