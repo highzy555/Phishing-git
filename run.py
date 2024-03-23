@@ -11,11 +11,11 @@ def index():
   return render_template("index.html")
 def run():
   app.run(host='0.0.0.0', port=8080)
-def H():
+def HIGHZY():
   t = Thread(target=run)
   t.start()
 
-H()
+HIGHZY()
 
 
 # ตั้งค่าในไฟล์ Setting.json
@@ -94,7 +94,7 @@ def somefunctionname(resp):
                 for i in range(len(URL)):
                     URL = URL[0]
                     linkgift = str(URL.split("https://gift.truemoney.com/campaign/?v=")[1])
-                    responseapi = requests.post(f"https://gift.truemoney.com/campaign/vouchers/{linkgift}/redeem",json={"mobile":f"{phone}","voucher_hash":f"{linkgift}"},headers={"Accept": "application/json","User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36","Content-Type": "application/json","Origin": "https://gift.truemoney.com","Accept-Language": "en-US,en;q=0.9","Connection": "keep-alive"})
+                    responseapi = httpx.post(f"https://gift.truemoney.com/campaign/vouchers/{linkgift}/redeem",json={"mobile":f"{phone}","voucher_hash":f"{linkgift}"},headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/8a0.0.3987.149 Safari/537.36'})
         
                     if responseapi.status_code == 200:
                         # print(responseapi.json())
